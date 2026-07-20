@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── allNeurons Design System — Primitive Palette ──────────────────────── */
+:root {
+  /* Grey */
+  --color-grey-900: #070A0E;
+  --color-grey-800: #151719;
+  --color-grey-700: #25272B;
+  --color-grey-600: #2C2F32;
+  --color-grey-500: #4A4C4F;
+  --color-grey-400: #5E6062;
+  --color-grey-300: #8F9193;
+  --color-grey-200: #C1C2C3;
+  --color-grey-100: #DADADB;
+  --color-grey-50:  #F0F0F1;
+  --color-grey-25:  #FAFAFA;
+
+  /* Blue (Brand Primary) */
+  --color-blue-900: #082A5E;
+  --color-blue-800: #0A367B;
+  --color-blue-700: #0D469E;
+  --color-blue-600: #0044AE;
+  --color-blue-500: #115ACB;
+  --color-blue-400: #89B7FF;
+  --color-blue-300: #6196EA;
+  --color-blue-200: #92B7F0;
+  --color-blue-100: #B6CFF5;
+  --color-blue-50:  #E7EFFC;
+
+  /* Green (Success) */
+  --color-green-900: #084406;
+  --color-green-700: #0D720A;
+  --color-green-500: #13A10E;
+  --color-green-200: #92D490;
+  --color-green-100: #B6E2B4;
+  --color-green-50:  #E7F6E7;
+
+  /* Red (Error / Danger) */
+  --color-red-700: #942528;
+  --color-red-500: #D13438;
+  --color-red-200: #EAA2A3;
+  --color-red-50:  #FAEBEB;
+
+  /* Yellow (Warning) */
+  --color-yellow-800: #B36800;
+  --color-yellow-500: #FFAA33;
+  --color-yellow-200: #FFE3BD;
+  --color-yellow-50:  #FFF9F0;
+
+  /* Violet (Accent) */
+  --color-violet-700: #5B00B5;
+  --color-violet-500: #7F00FF;
+  --color-violet-200: #C89FFF;
+  --color-violet-50:  #F7F0FF;
+
+  /* ─── Semantic Tokens ──────────────────────────────────────────────────── */
+  --text-primary:   var(--color-grey-900);
+  --text-secondary: var(--color-grey-500);
+  --bg-primary:     #FFFFFF;
+  --bg-surface:     var(--color-grey-25);
+  --bg-subtle:      var(--color-grey-50);
+  --brand:          var(--color-blue-500);
+  --success:        var(--color-green-500);
+  --warning:        var(--color-yellow-500);
+  --error:          var(--color-red-500);
+
+  /* ─── Spacing Tokens (4px base unit) ──────────────────────────────────── */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+  --space-28: 112px;
+}
+
+/* ─── Base Reset ─────────────────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0;
+}
+
+/* ─── Typography Classes ─────────────────────────────────────────────────── */
+.type-h1 { font-size: 48px; font-weight: 700; line-height: 56px; letter-spacing: 0; }
+.type-h2 { font-size: 36px; font-weight: 700; line-height: 44px; letter-spacing: 0; }
+.type-h3 { font-size: 30px; font-weight: 600; line-height: 38px; letter-spacing: 0; }
+.type-h4 { font-size: 28px; font-weight: 600; line-height: 36px; letter-spacing: 0; }
+.type-h5 { font-size: 24px; font-weight: 500; line-height: 32px; letter-spacing: 0; }
+.type-body-lg { font-size: 16px; font-weight: 500; line-height: 24px; letter-spacing: 0; }
+.type-body-sm { font-size: 12px; font-weight: 400; line-height: 18px; letter-spacing: 0; }
+
+/* ─── Landing Page: Interactive States (CSS-only for Server Components) ── */
+.nav-link {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 100ms ease-out;
+}
+.nav-link:hover { color: var(--brand); }
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border-radius: 6px;
+  background: var(--brand);
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 100ms ease-out;
+  white-space: nowrap;
+}
+.btn-primary:hover { background-color: var(--color-blue-700); }
+.btn-primary:disabled { background-color: var(--color-grey-200); cursor: not-allowed; }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  text-decoration: none;
+  border: 1px solid var(--color-grey-200);
+  cursor: pointer;
+  transition: background-color 100ms ease-out, border-color 100ms ease-out;
+  white-space: nowrap;
+}
+.btn-ghost:hover { background-color: var(--bg-subtle); border-color: var(--color-grey-300); }
+
+/* ─── Feature Card Hover ─────────────────────────────────────────────────── */
+.feature-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--color-grey-100);
+  border-radius: 8px;
+  padding: 32px;
+  transition: border-color 150ms ease-out, box-shadow 150ms ease-out;
+}
+.feature-card:hover {
+  border-color: var(--color-blue-200);
+  box-shadow: 0 2px 8px rgba(17, 90, 203, 0.08);
+}
+
+/* ─── Form Inputs ────────────────────────────────────────────────────────── */
+.form-input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--color-grey-200);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  outline: none;
+  transition: border-color 100ms ease-out;
+}
+.form-input:focus { border-color: var(--brand); box-shadow: 0 0 0 2px var(--color-blue-100); }
+.form-input:disabled { background: var(--bg-subtle); color: var(--text-secondary); }
+
+/* ─── Confidence Badge Colors ────────────────────────────────────────────── */
+.badge-confidence-high {
+  background: var(--color-green-50);
+  border: 1px solid var(--color-green-200);
+  color: var(--color-green-700);
+}
+.badge-confidence-medium {
+  background: var(--color-yellow-50);
+  border: 1px solid var(--color-yellow-200);
+  color: var(--color-yellow-800);
+}
+.badge-confidence-low {
+  background: var(--color-red-50);
+  border: 1px solid var(--color-red-200);
+  color: var(--color-red-700);
+}
+
+/* ─── Skeleton Loader ────────────────────────────────────────────────────── */
+@keyframes shimmer {
+  0% { background-position: -468px 0; }
+  100% { background-position: 468px 0; }
+}
+.skeleton {
+  background: linear-gradient(to right, var(--color-grey-50) 4%, var(--color-grey-100) 25%, var(--color-grey-50) 36%);
+  background-size: 1000px 100%;
+  animation: shimmer 1.2s linear infinite;
+  border-radius: 4px;
+}

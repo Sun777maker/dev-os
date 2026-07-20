@@ -1,0 +1,41 @@
+export const ERROR_CODES = {
+  UNAUTHORIZED: 'UNAUTHORIZED',
+  FORBIDDEN: 'FORBIDDEN',
+  CONTRACT_NOT_FOUND: 'CONTRACT_NOT_FOUND',
+  TERM_NOT_FOUND: 'TERM_NOT_FOUND',
+  UPLOAD_TOO_LARGE: 'UPLOAD_TOO_LARGE',
+  TOO_MANY_PAGES: 'TOO_MANY_PAGES',
+  SCANNED_PDF: 'SCANNED_PDF',
+  TOKEN_LIMIT_EXCEEDED: 'TOKEN_LIMIT_EXCEEDED',
+  ALREADY_PROCESSED: 'ALREADY_PROCESSED',
+  OPENAI_PARSE_FAILURE: 'OPENAI_PARSE_FAILURE',
+  OPENAI_TIMEOUT: 'OPENAI_TIMEOUT',
+  INVALID_RATING: 'INVALID_RATING',
+  INVALID_VALUE: 'INVALID_VALUE',
+  RATE_LIMITED: 'RATE_LIMITED',
+  PROMPT_INJECTION: 'PROMPT_INJECTION',
+  VALIDATION_ERROR: 'VALIDATION_ERROR',
+  INVALID_STATUS: 'INVALID_STATUS',
+} as const
+
+export type ErrorCode = keyof typeof ERROR_CODES
+
+export const ERROR_MESSAGES: Record<ErrorCode, string> = {
+  UNAUTHORIZED: 'You must be signed in to perform this action.',
+  FORBIDDEN: 'You do not have permission to access this resource.',
+  CONTRACT_NOT_FOUND: 'Contract not found.',
+  TERM_NOT_FOUND: 'Key term not found.',
+  UPLOAD_TOO_LARGE: 'File exceeds the 10 MB limit. Please upload a smaller file.',
+  TOO_MANY_PAGES: 'Contract exceeds the 20-page limit for MVP.',
+  SCANNED_PDF: 'Scanned PDFs are not supported yet. Please upload a text-layer PDF.',
+  TOKEN_LIMIT_EXCEEDED: 'Contract exceeds the 15,000-token limit for MVP.',
+  ALREADY_PROCESSED: 'This contract has already been processed.',
+  OPENAI_PARSE_FAILURE: 'AI extraction failed. Please try again.',
+  OPENAI_TIMEOUT: 'Analysis timed out. Please try again in a few minutes.',
+  INVALID_RATING: 'Rating must be thumbs_up or thumbs_down.',
+  INVALID_VALUE: 'Term value cannot be empty.',
+  RATE_LIMITED: 'Rate limit exceeded. Please try again later.',
+  PROMPT_INJECTION: 'Message contains disallowed patterns.',
+  VALIDATION_ERROR: 'Request validation failed.',
+  INVALID_STATUS: 'Contract must be fully processed before chatting.',
+}
